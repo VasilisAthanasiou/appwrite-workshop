@@ -86,7 +86,6 @@ export const fetchQRCodes = async (userID: string) => {
         const qrCodesDocs = await database.listDocuments(
             DATABASE_ID,
             QR_CODES_COLLECTION_ID,
-            [Query.equal("user_id", userID)]
         );
         const QRCodes = qrCodesDocs.documents.map(documentToQRCode);
         return QRCodes as QRCode[];
